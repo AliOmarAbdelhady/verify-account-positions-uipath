@@ -1,0 +1,14 @@
+﻿{
+  "Name": "ACME System3 Account Transactions",
+  "Description": "The Account Transactions (Account Movements) window of the ACME System 3 Desktop application, opened by double-clicking an account in the Client Accounts list. Shows a date-filtered transactions table (listView1) with a Show All button to defeat the date filter.",
+  "Type": "Screen",
+  "Id": "ab71OdNmJEGqAQ6yhmZs1g",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/ab71OdNmJEGqAQ6yhmZs1g",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/LYOUaJ28xEqj20pbtEfRUA",
+  "Created": "2026-08-05T13:41:51.3642203Z",
+  "Updated": "2026-08-05T13:41:51.3642203Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,12 @@
+﻿{
+  "Name": "ACME System3 Account Transactions_App",
+  "Type": "App",
+  "Id": "ABpMeiMQX0CRQ7cYP5rEMQ",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/ABpMeiMQX0CRQ7cYP5rEMQ",
+  "Created": "2026-08-05T13:41:51.3317112Z",
+  "Updated": "2026-08-05T13:41:51.3317112Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

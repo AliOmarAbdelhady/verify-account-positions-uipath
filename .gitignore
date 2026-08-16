@@ -1,0 +1,17 @@
+# UiPath Studio local artifacts
+.local/
+*.user
+
+# Build output
+packages/
+
+# Office lock files
+~$*
+
+# Screenshots of failed transactions (generated at runtime)
+**/Exceptions_Screenshots/*
+!**/Exceptions_Screenshots/placeholder.txt
+
+# Runtime temp data
+**/Data/Temp/*
+!**/Data/Temp/placeholder.txt

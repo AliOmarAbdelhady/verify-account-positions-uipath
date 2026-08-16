@@ -1,0 +1,14 @@
+﻿{
+  "Name": "ACME System3 Client Search",
+  "Description": "The 'Search For Client by ID' modal form of the ACME System 3 Desktop application, opened from the dashboard Clients > Search For Client > By Client ID menu. Contains the Client ID input, Include inactive clients checkbox, Search button, and a results list.",
+  "Type": "Screen",
+  "Id": "iAC9vh2Ubk-HlZF-ZCRc4g",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/iAC9vh2Ubk-HlZF-ZCRc4g",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/sWuRNQtUsUGULsOpD5zJPQ",
+  "Created": "2026-08-05T13:36:17.4376728Z",
+  "Updated": "2026-08-05T13:36:17.4376728Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

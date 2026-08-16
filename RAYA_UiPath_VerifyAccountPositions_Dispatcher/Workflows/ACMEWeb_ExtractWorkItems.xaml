@@ -1,0 +1,520 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ACMEWeb_ExtractWorkItems" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:sc="clr-namespace:System.Collections;assembly=System.Private.CoreLib" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Data;assembly=System.Data.Common" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="out_dt_WorkItems" Type="OutArgument(sd:DataTable)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>907,2208</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Data</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>System.Collections</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Data.Common</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Text.RegularExpressions</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>System.Xml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="ACME Web Extract Work Items" sap:VirtualizedContainerService.HintSize="873,2043" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_WIType" />
+      <Variable x:TypeArguments="sd:DataTable" Name="dt_Out" />
+      <Variable x:TypeArguments="sd:DataColumn" Name="dc_Temp" />
+      <Variable x:TypeArguments="sd:DataRow" Name="dr_Temp" />
+      <Variable x:TypeArguments="x:String" Name="str_Table" />
+      <Variable x:TypeArguments="x:String" Name="str_AllTables" />
+      <Variable x:TypeArguments="x:String" Name="str_ClientInfo" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="list_WorkItems" />
+      <Variable x:TypeArguments="scg:List(x:String)" Name="perPage" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_Authed" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Assign configured WI_Type" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">str_WIType</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_Config["WI_Type"].ToString()</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Create output table" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">
+          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">dt_Out</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">
+          <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">new DataTable()</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add WIID column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">dt_Out.Columns.Add("WIID", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add Type column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">dt_Out.Columns.Add("Type", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add Status column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_5">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">dt_Out.Columns.Add("Status", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add Description column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_6">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">dt_Out.Columns.Add("Description", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add Date column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_7">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">dt_Out.Columns.Add("Date", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add ClientID column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_8">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">dt_Out.Columns.Add("ClientID", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add AccountNumber column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_9">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">dt_Out.Columns.Add("AccountNumber", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add AccountAmount column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_10">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_10">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">dt_Out.Columns.Add("AccountAmount", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Add Currency column" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_16">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataColumn">
+          <CSharpReference x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">dc_Temp</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataColumn">
+          <CSharpValue x:TypeArguments="sd:DataColumn" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">dt_Out.Columns.Add("Currency", typeof(string))</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Init work item list" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_11">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:String)">
+          <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_11">list_WorkItems</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:String)">
+          <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">new List&lt;string&gt;()</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Init accumulated table text" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_17">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">str_AllTables</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_34">String.Empty</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <uix:NApplicationCard AttachMode="ByInstance" HealingAgentBehavior="Job" ScopeGuid="a1b2c3d4-3333-4333-8333-333333333333" DisplayName="Use Browser — ACME (login + extract)" sap:VirtualizedContainerService.HintSize="839,1053" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="805,880" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NGoToUrl DisplayName="Go To ACME root" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" Version="V2">
+              <uix:NGoToUrl.Url>
+                <InArgument x:TypeArguments="x:String">
+                  <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">in_Config["System1_URL"].ToString()</CSharpValue>
+                </InArgument>
+              </uix:NGoToUrl.Url>
+            </uix:NGoToUrl>
+            <uix:NCheckState DisplayName="Already authenticated? (Log Out)" HealingAgentBehavior="SameAsCard" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NCheckState_1" Version="V5">
+              <uix:NCheckState.Target>
+                <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="d0000000-0003-0003-0003-000000000020" ScopeSelectorArgument="&lt;html app='msedge.exe' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                  <uix:TargetAnchorable.FullSelectorArgument>
+                    <InArgument x:TypeArguments="x:String">
+                      <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">"&lt;webctrl tag='A' innertext='Log Out' /&gt;"</CSharpValue>
+                    </InArgument>
+                  </uix:TargetAnchorable.FullSelectorArgument>
+                </uix:TargetAnchorable>
+              </uix:NCheckState.Target>
+              <uix:NCheckState.Result>
+                <OutArgument x:TypeArguments="x:Boolean">
+                  <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_12">bool_Authed</CSharpReference>
+                </OutArgument>
+              </uix:NCheckState.Result>
+            </uix:NCheckState>
+            <If DisplayName="If not authenticated, sign in" sap:VirtualizedContainerService.HintSize="771,354" sap2010:WorkflowViewState.IdRef="If_1">
+              <If.Condition>
+                <InArgument x:TypeArguments="x:Boolean">
+                  <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">!bool_Authed</CSharpValue>
+                </InArgument>
+              </If.Condition>
+              <If.Then>
+                <Sequence DisplayName="Sign in" sap:VirtualizedContainerService.HintSize="376,247" sap2010:WorkflowViewState.IdRef="Sequence_3">
+                  <sap:WorkflowViewStateService.ViewState>
+                    <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                      <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                    </scg:Dictionary>
+                  </sap:WorkflowViewStateService.ViewState>
+                  <uix:NGoToUrl DisplayName="Go To login page" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NGoToUrl_2" Version="V2">
+                    <uix:NGoToUrl.Url>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">in_Config["System1_URL"].ToString().TrimEnd('/') + "/login"</CSharpValue>
+                      </InArgument>
+                    </uix:NGoToUrl.Url>
+                  </uix:NGoToUrl>
+                  <uix:NTypeInto ClickBeforeMode="Single" DisplayName="Type Email" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_1" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="d0000000-0003-0003-0003-000000000021" ScopeSelectorArgument="&lt;html app='msedge.exe' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.FullSelectorArgument>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">"&lt;webctrl id='email' tag='INPUT' /&gt;"</CSharpValue>
+                          </InArgument>
+                        </uix:TargetAnchorable.FullSelectorArgument>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">in_Config["ACME_Username"].ToString()</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                  </uix:NTypeInto>
+                  <uix:NTypeInto ClickBeforeMode="Single" DisplayName="Type Password" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NTypeInto_2" Version="V5">
+                    <uix:NTypeInto.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="d0000000-0003-0003-0003-000000000022" ScopeSelectorArgument="&lt;html app='msedge.exe' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.FullSelectorArgument>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">"&lt;webctrl id='password' tag='INPUT' /&gt;"</CSharpValue>
+                          </InArgument>
+                        </uix:TargetAnchorable.FullSelectorArgument>
+                      </uix:TargetAnchorable>
+                    </uix:NTypeInto.Target>
+                    <uix:NTypeInto.Text>
+                      <InArgument x:TypeArguments="x:String">
+                        <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">in_Config["ACME_Password"].ToString()</CSharpValue>
+                      </InArgument>
+                    </uix:NTypeInto.Text>
+                  </uix:NTypeInto>
+                  <uix:NClick ClickType="Single" DisplayName="Click Login" HealingAgentBehavior="SameAsCard" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NClick_1" Version="V5">
+                    <uix:NClick.Target>
+                      <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" ElementType="Button" ElementVisibilityArgument="Interactive" Guid="d0000000-0003-0003-0003-000000000023" ScopeSelectorArgument="&lt;html app='msedge.exe' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                        <uix:TargetAnchorable.FullSelectorArgument>
+                          <InArgument x:TypeArguments="x:String">
+                            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"&lt;webctrl tag='BUTTON' class='btn btn-primary' /&gt;"</CSharpValue>
+                          </InArgument>
+                        </uix:TargetAnchorable.FullSelectorArgument>
+                      </uix:TargetAnchorable>
+                    </uix:NClick.Target>
+                  </uix:NClick>
+                </Sequence>
+              </If.Then>
+            </If>
+            <ui:ForEach x:TypeArguments="x:Int32" CurrentIndex="{x:Null}" DisplayName="For each work-items page (1..15)" sap:VirtualizedContainerService.HintSize="771,290" sap2010:WorkflowViewState.IdRef="ForEach`1_1">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:Int32">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:Int32" Name="page" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="754,161" sap2010:WorkflowViewState.IdRef="Sequence_4">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NGoToUrl DisplayName="Open page" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NGoToUrl_3" Version="V2">
+                      <uix:NGoToUrl.Url>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">in_Config["System1_URL"].ToString().TrimEnd('/') + "/work-items?page=" + page.ToString()</CSharpValue>
+                        </InArgument>
+                      </uix:NGoToUrl.Url>
+                    </uix:NGoToUrl>
+                    <uix:NGetText DisplayName="Read table text" HealingAgentBehavior="SameAsCard" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NGetText_1" Version="V5">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" ElementType="Table" ElementVisibilityArgument="Interactive" Guid="d0000000-0003-0003-0003-000000000030" ScopeSelectorArgument="&lt;html app='msedge.exe' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.FullSelectorArgument>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_22">"&lt;webctrl tag='TABLE' class='table' /&gt;"</CSharpValue>
+                            </InArgument>
+                          </uix:TargetAnchorable.FullSelectorArgument>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                      <uix:NGetText.Text>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_13">str_Table</CSharpReference>
+                        </OutArgument>
+                      </uix:NGetText.Text>
+                    </uix:NGetText>
+                    <If DisplayName="If table has rows, parse matching WIIDs" sap:VirtualizedContainerService.HintSize="710,179" sap2010:WorkflowViewState.IdRef="If_2">
+                      <If.Condition>
+                        <InArgument x:TypeArguments="x:Boolean">
+                          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_23">!String.IsNullOrWhiteSpace(str_Table) &amp;&amp; Regex.IsMatch(str_Table, "\\d{9}")</CSharpValue>
+                        </InArgument>
+                      </If.Condition>
+                      <If.Then>
+                        <Sequence DisplayName="Parse" sap:VirtualizedContainerService.HintSize="376,113" sap2010:WorkflowViewState.IdRef="Sequence_5">
+                          <sap:WorkflowViewStateService.ViewState>
+                            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                            </scg:Dictionary>
+                          </sap:WorkflowViewStateService.ViewState>
+                          <Assign DisplayName="Parse matching WIIDs on this page" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_12">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="scg:List(x:String)">
+                                <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_14">perPage</CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="scg:List(x:String)">
+                                <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_24">Regex.Matches(str_Table, "(\\d{9})\\s+(.+?)\\s+(WI\\d+)\\s+(\\w+)\\s+(\\d{4}-\\d{2}-\\d{2})").Cast&lt;Match&gt;().Where(m => m.Groups[3].Value.Trim().Equals(str_WIType, StringComparison.OrdinalIgnoreCase)).Select(m => m.Groups[1].Value).ToList()</CSharpValue>
+                              </InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign DisplayName="Append to master list" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_13">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="scg:List(x:String)">
+                                <CSharpReference x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_15">list_WorkItems</CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="scg:List(x:String)">
+                                <CSharpValue x:TypeArguments="scg:List(x:String)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_25">list_WorkItems.Concat(perPage).ToList()</CSharpValue>
+                              </InArgument>
+                            </Assign.Value>
+                          </Assign>
+                          <Assign DisplayName="Accumulate table text" sap:VirtualizedContainerService.HintSize="334,64" sap2010:WorkflowViewState.IdRef="Assign_18">
+                            <Assign.To>
+                              <OutArgument x:TypeArguments="x:String">
+                                <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_19">str_AllTables</CSharpReference>
+                              </OutArgument>
+                            </Assign.To>
+                            <Assign.Value>
+                              <InArgument x:TypeArguments="x:String">
+                                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_35">str_AllTables + str_Table + "\n"</CSharpValue>
+                              </InArgument>
+                            </Assign.Value>
+                          </Assign>
+                        </Sequence>
+                      </If.Then>
+                    </If>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+              <ui:ForEach.Values>
+                <InArgument x:TypeArguments="sc:IEnumerable">
+                  <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_26">Enumerable.Range(1, 15)</CSharpValue>
+                </InArgument>
+              </ui:ForEach.Values>
+            </ui:ForEach>
+            <ui:ForEach x:TypeArguments="x:String" CurrentIndex="{x:Null}" DisplayName="For each work item — enrich account info" sap:VirtualizedContainerService.HintSize="771,221" sap2010:WorkflowViewState.IdRef="ForEach`1_2">
+              <ui:ForEach.Body>
+                <ActivityAction x:TypeArguments="x:String">
+                  <ActivityAction.Argument>
+                    <DelegateInArgument x:TypeArguments="x:String" Name="wiid" />
+                  </ActivityAction.Argument>
+                  <Sequence DisplayName="Body" sap:VirtualizedContainerService.HintSize="754,179" sap2010:WorkflowViewState.IdRef="Sequence_6">
+                    <sap:WorkflowViewStateService.ViewState>
+                      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+                      </scg:Dictionary>
+                    </sap:WorkflowViewStateService.ViewState>
+                    <uix:NGoToUrl DisplayName="Open work item detail" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NGoToUrl_4" Version="V2">
+                      <uix:NGoToUrl.Url>
+                        <InArgument x:TypeArguments="x:String">
+                          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_28">in_Config["System1_URL"].ToString().TrimEnd('/') + "/work-items/" + wiid</CSharpValue>
+                        </InArgument>
+                      </uix:NGoToUrl.Url>
+                    </uix:NGoToUrl>
+                    <uix:NGetText DisplayName="Get client info" HealingAgentBehavior="SameAsCard" ScopeIdentifier="a1b2c3d4-3333-4333-8333-333333333333" sap2010:WorkflowViewState.IdRef="NGetText_2" Version="V5">
+                      <uix:NGetText.Target>
+                        <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="d0000000-0003-0003-0003-000000000031" ScopeSelectorArgument="&lt;html app='msedge.exe' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                          <uix:TargetAnchorable.FullSelectorArgument>
+                            <InArgument x:TypeArguments="x:String">
+                              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_29">"&lt;webctrl tag='P' parentclass='col-lg-5' /&gt;"</CSharpValue>
+                            </InArgument>
+                          </uix:TargetAnchorable.FullSelectorArgument>
+                        </uix:TargetAnchorable>
+                      </uix:NGetText.Target>
+                      <uix:NGetText.Text>
+                        <OutArgument x:TypeArguments="x:String">
+                          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_16">str_ClientInfo</CSharpReference>
+                        </OutArgument>
+                      </uix:NGetText.Text>
+                    </uix:NGetText>
+                    <Assign DisplayName="Add enriched row" sap:VirtualizedContainerService.HintSize="700,64" sap2010:WorkflowViewState.IdRef="Assign_14">
+                      <Assign.To>
+                        <OutArgument x:TypeArguments="sd:DataRow">
+                          <CSharpReference x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpReference`1_17">dr_Temp</CSharpReference>
+                        </OutArgument>
+                      </Assign.To>
+                      <Assign.Value>
+                        <InArgument x:TypeArguments="sd:DataRow">
+                          <CSharpValue x:TypeArguments="sd:DataRow" sap2010:WorkflowViewState.IdRef="CSharpValue`1_30">dt_Out.Rows.Add(new object[] { wiid, str_WIType, Regex.Match(str_AllTables, wiid + "\\s+(.+?)\\s+WI\\d\\s+\\w+\\s+\\d{4}-\\d{2}-\\d{2}").Groups[1].Value.Trim(), Regex.Match(str_AllTables, wiid + "\\s+.+?\\s+WI\\d\\s+(\\w+)\\s+\\d{4}-\\d{2}-\\d{2}").Groups[1].Value, Regex.Match(str_AllTables, wiid + "\\s+.+?\\s+WI\\d\\s+\\w+\\s+(\\d{4}-\\d{2}-\\d{2})").Groups[1].Value, Regex.Match(str_ClientInfo, "Client ID:\\s*(\\S+)").Groups[1].Value, Regex.Match(str_ClientInfo, "Account Number:\\s*(\\S+)").Groups[1].Value, Regex.Match(str_ClientInfo, "Account Amount:\\s*(-?[\\d,\\.]+)").Groups[1].Value, Regex.Match(str_ClientInfo, "Account Amount:\\s*-?[\\d,\\.]+\\s*([A-Z]{3})").Groups[1].Value })</CSharpValue>
+                        </InArgument>
+                      </Assign.Value>
+                    </Assign>
+                  </Sequence>
+                </ActivityAction>
+              </ui:ForEach.Body>
+              <ui:ForEach.Values>
+                <InArgument x:TypeArguments="sc:IEnumerable">
+                  <CSharpValue x:TypeArguments="sc:IEnumerable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_31">list_WorkItems</CSharpValue>
+                </InArgument>
+              </ui:ForEach.Values>
+            </ui:ForEach>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp BrowserType="Edge" Selector="&lt;html app='msedge.exe' url='*acme-test.uipath.com*' /&gt;" Version="V3">
+          <uix:TargetApp.Url>
+            <InArgument x:TypeArguments="x:String">
+              <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_27">in_Config["System1_URL"].ToString()</CSharpValue>
+            </InArgument>
+          </uix:TargetApp.Url>
+          <uix:TargetApp.Arguments>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.Arguments>
+          <uix:TargetApp.WorkingDirectory>
+            <InArgument x:TypeArguments="x:String" />
+          </uix:TargetApp.WorkingDirectory>
+        </uix:TargetApp>
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <ui:WriteTextFile ContinueOnError="{x:Null}" File="{x:Null}" Output="{x:Null}" DisplayName="Write extracted items to output file" FileName="Data/Output/DispatchedWorkItems.csv" sap:VirtualizedContainerService.HintSize="839,133" sap2010:WorkflowViewState.IdRef="WriteTextFile_1">
+      <ui:WriteTextFile.Text>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_36">"WIID,Type,Description,Status,Date,ClientID,AccountNumber,AccountAmount,Currency\n" + String.Join("\n", dt_Out.Rows.Cast&lt;DataRow&gt;().Select(r => String.Join(",", r.ItemArray.Select(v => v.ToString()))))</CSharpValue>
+        </InArgument>
+      </ui:WriteTextFile.Text>
+    </ui:WriteTextFile>
+    <ui:LogMessage DisplayName="Log extracted counts" sap:VirtualizedContainerService.HintSize="839,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_32">"ExtractWorkItems: " + str_WIType + " items=" + (list_WorkItems == null ? 0 : list_WorkItems.Count).ToString()</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <Assign DisplayName="Return work items table" sap:VirtualizedContainerService.HintSize="839,64" sap2010:WorkflowViewState.IdRef="Assign_15">
+      <Assign.To>
+        <OutArgument x:TypeArguments="sd:DataTable">
+          <CSharpReference x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpReference`1_18">out_dt_WorkItems</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="sd:DataTable">
+          <CSharpValue x:TypeArguments="sd:DataTable" sap2010:WorkflowViewState.IdRef="CSharpValue`1_33">dt_Out</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>

@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Clients Menu Item",
+  "Description": "The 'Clients' top-level menu item on the ACME System 3 dashboard menu bar (WinForms menuStrip1) that opens the Clients submenu.",
+  "Type": "Element",
+  "TaxonomyType": "None",
+  "Id": "UUOi_-7wkEqzYSAb4PU06Q",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/UUOi_-7wkEqzYSAb4PU06Q",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/kP6k14yPu06dAD4ph7hFUg",
+  "Created": "2026-08-05T13:20:04.7832187Z",
+  "Updated": "2026-08-05T13:20:04.7832187Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

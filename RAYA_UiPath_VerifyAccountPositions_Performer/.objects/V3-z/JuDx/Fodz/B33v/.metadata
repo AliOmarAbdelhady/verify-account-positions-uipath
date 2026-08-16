@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Account Row",
+  "Description": "The account row in the Client Accounts list of the ACME System 3 Desktop application (WinForms listView1). Double-click the row whose name matches the Account Number to open its transactions. Name is parametrized on in_AccountNumber.",
+  "Type": "Element",
+  "TaxonomyType": "None",
+  "Id": "B33vFzD0LkiA22avHmeM2Q",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/B33vFzD0LkiA22avHmeM2Q",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/FodzqFOFNUKqe1aerDnhKQ",
+  "Created": "2026-08-05T13:41:58.472553Z",
+  "Updated": "2026-08-05T13:41:58.472553Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

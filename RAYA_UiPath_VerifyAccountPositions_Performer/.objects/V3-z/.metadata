@@ -1,0 +1,12 @@
+﻿{
+  "Name": "ACME System3 Client Accounts_App",
+  "Type": "App",
+  "Id": "V3-zbDEyo0q8T5waVxM4Lg",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/V3-zbDEyo0q8T5waVxM4Lg",
+  "Created": "2026-08-05T13:41:49.3012368Z",
+  "Updated": "2026-08-05T13:41:49.3012368Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Login Button",
+  "Description": "The Login submit button on the ACME System 3 login screen (WinForms button1).",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "TR68Q6krqky0_WYVUIpFZg",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/TR68Q6krqky0_WYVUIpFZg",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/zAlXEsGx4U-mQDBtaVdldg",
+  "Created": "2026-08-05T12:51:43.8831106Z",
+  "Updated": "2026-08-05T12:51:43.8831106Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

@@ -1,0 +1,14 @@
+﻿{
+  "Name": "ACME System3 Dashboard",
+  "Description": "The main dashboard window of the ACME System 3 Desktop application shown after successful login. Hosts the menu bar (Clients > Search For Client > By Client ID) and the welcome label.",
+  "Type": "Screen",
+  "Id": "kP6k14yPu06dAD4ph7hFUg",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/kP6k14yPu06dAD4ph7hFUg",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/Ix1KTHBpYUe6D83dvV0dOw",
+  "Created": "2026-08-05T13:19:40.3101573Z",
+  "Updated": "2026-08-05T13:19:40.3101573Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

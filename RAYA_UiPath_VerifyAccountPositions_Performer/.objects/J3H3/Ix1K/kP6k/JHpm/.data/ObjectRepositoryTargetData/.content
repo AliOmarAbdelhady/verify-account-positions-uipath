@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="XsaRQmZUj0-lqQA_sWFBAg" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="-493, -216, 0, 0" DesignTimeScaleFactor="1.25" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='menuStrip1' /&gt;&lt;ctrl name='menuStrip1' role='menu bar' /&gt;&lt;ctrl name='Clients' role='menu item' /&gt;&lt;ctrl name='Search For Client' role='menu item' /&gt;&lt;ctrl name='By Client ID' role='menu item' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='menuStrip1' matching:ctrlname='fuzzy' fuzzylevel:ctrlname='0.0' /&gt;&lt;ctrl name='menuStrip1' role='menu bar' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Clients' role='menu item' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Search For Client' role='menu item' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='By Client ID' role='menu item' automationid='' matching:name='fuzzy' fuzzylevel:name='0.0' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' check:text='By Client ID' /&gt;" Guid="bba55438-7490-46d8-ba9a-a7ffca69672c" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' cls='WindowsForms10.Window.*' title='*ACME System*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="34ad91e501cb099be34a53b2d6b00886.jpg" xmlns="">01swuIwyyR0SQ7wE6GwsZJw</imageRef>
+    </TargetAnchorable>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

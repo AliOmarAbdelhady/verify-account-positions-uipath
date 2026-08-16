@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Show All Button",
+  "Description": "The 'Show All' button on the ACME System 3 Account Transactions window (WinForms button1). Click to defeat the date range filter and load all transactions.",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "cxj4t8a85UOw7P5zH7SZkA",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/cxj4t8a85UOw7P5zH7SZkA",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/ab71OdNmJEGqAQ6yhmZs1g",
+  "Created": "2026-08-05T13:42:00.2918193Z",
+  "Updated": "2026-08-05T13:42:00.2918193Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

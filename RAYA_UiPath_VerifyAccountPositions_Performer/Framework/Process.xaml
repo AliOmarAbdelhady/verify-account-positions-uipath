@@ -1,0 +1,206 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="Process" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:s="clr-namespace:System;assembly=System.Private.CoreLib" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_TransactionItem" Type="InArgument(ui:QueueItem)" />
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>836,1336</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Globalization</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Process" sap:VirtualizedContainerService.HintSize="802,1171" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_WIID" />
+      <Variable x:TypeArguments="x:String" Name="str_ClientID" />
+      <Variable x:TypeArguments="x:String" Name="str_AccountNumber" />
+      <Variable x:TypeArguments="x:Decimal" Name="dec_Calculated" />
+      <Variable x:TypeArguments="x:Int32" Name="int_RowCount" />
+      <Variable x:TypeArguments="x:Decimal" Name="dec_Expected" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_IsMatch" />
+      <Variable x:TypeArguments="x:Decimal" Name="dec_Difference" />
+      <Variable x:TypeArguments="x:String" Name="str_FinalStatus" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <Assign DisplayName="Read WIID from queue content" sap:VirtualizedContainerService.HintSize="768,64" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">str_WIID</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_TransactionItem.SpecificContent["WorkItemId"].ToString()</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Read ClientID" sap:VirtualizedContainerService.HintSize="768,64" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">str_ClientID</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">in_TransactionItem.SpecificContent.ContainsKey("ClientID") ? in_TransactionItem.SpecificContent["ClientID"].ToString() : String.Empty</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Read Account Number" sap:VirtualizedContainerService.HintSize="768,64" sap2010:WorkflowViewState.IdRef="Assign_4">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:String">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_9">str_AccountNumber</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">in_TransactionItem.SpecificContent.ContainsKey("AccountNumber") ? in_TransactionItem.SpecificContent["AccountNumber"].ToString() : String.Empty</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <If DisplayName="If required business data missing -> Business Exception" sap:VirtualizedContainerService.HintSize="768,220" sap2010:WorkflowViewState.IdRef="If_1">
+      <If.Condition>
+        <InArgument x:TypeArguments="x:Boolean">
+          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">String.IsNullOrWhiteSpace(str_WIID) || String.IsNullOrWhiteSpace(str_ClientID) || String.IsNullOrWhiteSpace(str_AccountNumber)</CSharpValue>
+        </InArgument>
+      </If.Condition>
+      <If.Then>
+        <Sequence DisplayName="Throw BRE" sap:VirtualizedContainerService.HintSize="376,113" sap2010:WorkflowViewState.IdRef="Sequence_2">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <Throw DisplayName="Throw BusinessRuleException (invalid data)" sap:VirtualizedContainerService.HintSize="334,90" sap2010:WorkflowViewState.IdRef="Throw_1">
+            <InArgument x:TypeArguments="s:Exception">
+              <CSharpValue x:TypeArguments="s:Exception" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">new BusinessRuleException("WIID " + str_WIID + " is missing required ClientID; cannot verify account position.")</CSharpValue>
+            </InArgument>
+          </Throw>
+        </Sequence>
+      </If.Then>
+    </If>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACMEDesktop_NavigateToClientSearch" sap:VirtualizedContainerService.HintSize="768,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\ACMEDesktop_NavigateToClientSearch.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">in_Config</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ClientID">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">str_ClientID</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_AccountNumber">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">str_AccountNumber</CSharpValue>
+        </InArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACMEDesktop_SumAccountTransactions" sap:VirtualizedContainerService.HintSize="768,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\ACMEDesktop_SumAccountTransactions.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">in_Config</CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="x:Decimal" x:Key="out_CalculatedTotal">
+          <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">dec_Calculated</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:Int32" x:Key="out_RowCount">
+          <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">int_RowCount</CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <Assign DisplayName="Read Account Amount" sap:VirtualizedContainerService.HintSize="768,64" sap2010:WorkflowViewState.IdRef="Assign_3">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Decimal">
+          <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">dec_Expected</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Decimal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">in_TransactionItem.SpecificContent.ContainsKey("AccountAmount") ? Decimal.Parse(in_TransactionItem.SpecificContent["AccountAmount"].ToString().Replace(",", "")) : 0m</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke Control_CheckAccountPosition" sap:VirtualizedContainerService.HintSize="768,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\Control_CheckAccountPosition.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_ExpectedTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">dec_Expected</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_ActualTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">dec_Calculated</CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsMatch">
+          <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">bool_IsMatch</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:Decimal" x:Key="out_Difference">
+          <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_7">dec_Difference</CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke ACMEWeb_UpdateWorkItem" sap:VirtualizedContainerService.HintSize="768,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="Workflows\ACMEWeb_UpdateWorkItem.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="scg:Dictionary(x:String, x:Object)" x:Key="in_Config">
+          <CSharpValue x:TypeArguments="scg:Dictionary(x:String, x:Object)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">in_Config</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_WIID">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">str_WIID</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:Boolean" x:Key="in_IsMatch">
+          <CSharpValue x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">bool_IsMatch</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_CalculatedTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">dec_Calculated</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_Difference">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">dec_Difference</CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="x:String" x:Key="out_FinalStatus">
+          <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_8">str_FinalStatus</CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:AppendLine ContinueOnError="{x:Null}" File="{x:Null}" DisplayName="Append transaction result record" FileName="Data/Output/TransactionResults.jsonl" sap:VirtualizedContainerService.HintSize="768,133" sap2010:WorkflowViewState.IdRef="AppendLine_1">
+      <ui:AppendLine.Text>
+        <InArgument x:TypeArguments="x:String">
+          <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_21">"{ \"work_item_id\": \"" + str_WIID + "\", \"work_item_type\": \"WI1\", \"client_id\": \"" + str_ClientID + "\", \"account_number\": \"" + str_AccountNumber + "\", \"system_1_account_amount\": " + dec_Expected.ToString(System.Globalization.CultureInfo.InvariantCulture) + ", \"system_3_transaction_sum\": " + dec_Calculated.ToString(System.Globalization.CultureInfo.InvariantCulture) + ", \"difference\": " + dec_Difference.ToString(System.Globalization.CultureInfo.InvariantCulture) + ", \"amounts_match\": " + bool_IsMatch.ToString().ToLower() + ", \"final_status\": \"" + str_FinalStatus + "\", \"comment\": \"" + (bool_IsMatch ? "Account value matches" : "Account has difference of " + dec_Difference.ToString(System.Globalization.CultureInfo.InvariantCulture)) + "\", \"processed_at\": \"" + DateTime.Now.ToString("yyyy-MM-ddTHH:mm:ss") + "\" }"</CSharpValue>
+        </InArgument>
+      </ui:AppendLine.Text>
+    </ui:AppendLine>
+    <ui:LogMessage DisplayName="Log Message (transaction result)" sap:VirtualizedContainerService.HintSize="768,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">"WIID " + str_WIID + " verified. Client=" + str_ClientID + " Account=" + str_AccountNumber + " S1Amount=" + dec_Expected.ToString() + " S3Sum=" + dec_Calculated.ToString() + " SignedDiff=" + dec_Difference.ToString() + " Match=" + bool_IsMatch.ToString() + " Status=" + str_FinalStatus</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>

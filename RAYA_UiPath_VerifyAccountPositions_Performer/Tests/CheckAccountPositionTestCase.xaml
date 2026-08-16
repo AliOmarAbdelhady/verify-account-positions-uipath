@@ -1,0 +1,176 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="CheckAccountPositionTestCase" sap2010:ExpressionActivityEditor.ExpressionActivityEditor="C#" sap:VirtualizedContainerService.HintSize="604,1450" sap2010:WorkflowViewState.IdRef="CheckAccountPositionTestCase_1" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:ui="http://schemas.uipath.com/workflow/activities" xmlns:uta="clr-namespace:UiPath.Testing.Activities;assembly=UiPath.Testing.Activities" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.PrivateCoreLib</AssemblyReference>
+      <AssemblyReference>UiPath.Testing.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence DisplayName="Check Account Position Test Case" sap:VirtualizedContainerService.HintSize="570,1416" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:Decimal" Name="dec_Expected" />
+      <Variable x:TypeArguments="x:Decimal" Name="dec_Actual" />
+      <Variable x:TypeArguments="x:Boolean" Name="bool_IsMatch" />
+      <Variable x:TypeArguments="x:Decimal" Name="dec_Difference" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <ui:LogMessage DisplayName="Log Message - Start" sap:VirtualizedContainerService.HintSize="528,95" sap2010:WorkflowViewState.IdRef="LogMessage_1" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">"CheckAccountPositionTestCase started."</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckAccountPosition - matching amounts" sap:VirtualizedContainerService.HintSize="528,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_1" UnSafe="False" WorkflowFileName="Workflows\Control_CheckAccountPosition.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_ExpectedTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">1016799m</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_ActualTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">1016799m</CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsMatch">
+          <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">bool_IsMatch</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:Decimal" x:Key="out_Difference">
+          <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">dec_Difference</CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" Result="{x:Null}" ContinueOnFailure="False" DisplayName="Verify match flag (equal amounts)" Operator="Equality" sap:VirtualizedContainerService.HintSize="528,143" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_1" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <uta:VerifyExpressionWithOperator.FirstExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">bool_IsMatch</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.FirstExpression>
+      <uta:VerifyExpressionWithOperator.SecondExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_5">true</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.SecondExpression>
+    </uta:VerifyExpressionWithOperator>
+    <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" Result="{x:Null}" ContinueOnFailure="False" DisplayName="Verify zero difference" Operator="Equality" sap:VirtualizedContainerService.HintSize="528,143" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_2" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <uta:VerifyExpressionWithOperator.FirstExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_6">dec_Difference</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.FirstExpression>
+      <uta:VerifyExpressionWithOperator.SecondExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_7">0m</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.SecondExpression>
+    </uta:VerifyExpressionWithOperator>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckAccountPosition - positive difference" sap:VirtualizedContainerService.HintSize="528,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_2" UnSafe="False" WorkflowFileName="Workflows\Control_CheckAccountPosition.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_ExpectedTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_8">100790m</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_ActualTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_9">100000m</CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsMatch">
+          <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">bool_IsMatch</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:Decimal" x:Key="out_Difference">
+          <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">dec_Difference</CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" Result="{x:Null}" ContinueOnFailure="False" DisplayName="Verify signed difference is positive" Operator="Equality" sap:VirtualizedContainerService.HintSize="528,143" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_3" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <uta:VerifyExpressionWithOperator.FirstExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">dec_Difference</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.FirstExpression>
+      <uta:VerifyExpressionWithOperator.SecondExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_11">790m</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.SecondExpression>
+    </uta:VerifyExpressionWithOperator>
+    <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" Result="{x:Null}" ContinueOnFailure="False" DisplayName="Verify match flag (mismatch)" Operator="Equality" sap:VirtualizedContainerService.HintSize="528,143" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_4" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <uta:VerifyExpressionWithOperator.FirstExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_12">bool_IsMatch</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.FirstExpression>
+      <uta:VerifyExpressionWithOperator.SecondExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_13">false</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.SecondExpression>
+    </uta:VerifyExpressionWithOperator>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="Invoke CheckAccountPosition - negative amounts and difference" sap:VirtualizedContainerService.HintSize="528,113" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="Workflows\Control_CheckAccountPosition.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_ExpectedTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_14">-344141m</CSharpValue>
+        </InArgument>
+        <InArgument x:TypeArguments="x:Decimal" x:Key="in_ActualTotal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_15">-300000m</CSharpValue>
+        </InArgument>
+        <OutArgument x:TypeArguments="x:Boolean" x:Key="out_IsMatch">
+          <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_5">bool_IsMatch</CSharpReference>
+        </OutArgument>
+        <OutArgument x:TypeArguments="x:Decimal" x:Key="out_Difference">
+          <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_6">dec_Difference</CSharpReference>
+        </OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" Result="{x:Null}" ContinueOnFailure="False" DisplayName="Verify signed difference is negative" Operator="Equality" sap:VirtualizedContainerService.HintSize="528,143" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_5" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <uta:VerifyExpressionWithOperator.FirstExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_16">dec_Difference</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.FirstExpression>
+      <uta:VerifyExpressionWithOperator.SecondExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_17">-44141m</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.SecondExpression>
+    </uta:VerifyExpressionWithOperator>
+    <uta:VerifyExpressionWithOperator AlternativeVerificationTitle="{x:Null}" KeepScreenshots="{x:Null}" Result="{x:Null}" ContinueOnFailure="False" DisplayName="Verify match flag (negative mismatch)" Operator="Equality" sap:VirtualizedContainerService.HintSize="528,143" sap2010:WorkflowViewState.IdRef="VerifyExpressionWithOperator_6" TakeScreenshotInCaseOfFailingAssertion="False" TakeScreenshotInCaseOfSucceedingAssertion="False">
+      <uta:VerifyExpressionWithOperator.FirstExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_18">bool_IsMatch</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.FirstExpression>
+      <uta:VerifyExpressionWithOperator.SecondExpression>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_19">false</CSharpValue>
+        </InArgument>
+      </uta:VerifyExpressionWithOperator.SecondExpression>
+    </uta:VerifyExpressionWithOperator>
+    <ui:LogMessage DisplayName="Log Message - Done" sap:VirtualizedContainerService.HintSize="528,95" sap2010:WorkflowViewState.IdRef="LogMessage_2" Level="Info">
+      <ui:LogMessage.Message>
+        <InArgument x:TypeArguments="x:Object">
+          <CSharpValue x:TypeArguments="x:Object" sap2010:WorkflowViewState.IdRef="CSharpValue`1_20">"CheckAccountPositionTestCase finished successfully."</CSharpValue>
+        </InArgument>
+      </ui:LogMessage.Message>
+    </ui:LogMessage>
+  </Sequence>
+</Activity>

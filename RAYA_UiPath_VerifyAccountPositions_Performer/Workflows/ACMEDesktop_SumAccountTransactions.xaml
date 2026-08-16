@@ -1,0 +1,129 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ACMEDesktop_SumAccountTransactions" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Process configuration dictionary." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="Sum of all account transaction amounts (Decimal)." Name="out_CalculatedTotal" Type="OutArgument(x:Decimal)" />
+    <x:Property sap2010:Annotation.AnnotationText="Number of transaction rows included in the sum." Name="out_RowCount" Type="OutArgument(x:Int32)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>683,672</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>System.Text.RegularExpressions</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <Sequence sap2010:Annotation.AnnotationText="Reads ALL transaction rows for the currently-open account using Extract Table, then sums the Amount column as Decimal. The account must already be open (NavigateToClientSearch + Client Accounts + double-click account done upstream). Clicks Show All to defeat the date filter, then extracts." DisplayName="ACME Desktop Sum Account Transactions" sap:VirtualizedContainerService.HintSize="649,507" sap2010:WorkflowViewState.IdRef="Sequence_1">
+    <Sequence.Variables>
+      <Variable x:TypeArguments="x:String" Name="str_TransactionsText" />
+      <Variable x:TypeArguments="scg:List(x:Decimal)" Name="list_Amounts" />
+    </Sequence.Variables>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+        <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+    <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use App (Account Transactions)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="615,413" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="f1b2c3d4-7777-4777-8777-777777777777" Version="V2">
+      <uix:NApplicationCard.Body>
+        <ActivityAction x:TypeArguments="x:Object">
+          <ActivityAction.Argument>
+            <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+          </ActivityAction.Argument>
+          <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="581,240" sap2010:WorkflowViewState.IdRef="Sequence_2">
+            <sap:WorkflowViewStateService.ViewState>
+              <scg:Dictionary x:TypeArguments="x:String, x:Object">
+                <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              </scg:Dictionary>
+            </sap:WorkflowViewStateService.ViewState>
+            <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Show All (defeat date filter)" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f1b2c3d4-7777-4777-8777-777777777777" Version="V5">
+              <uix:NClick.Target>
+                <uix:TargetAnchorable ContentHash="Id-DiWlTYUuV3HOzSBG2UA" DesignTimeRectangle="0, 0, 0, 0" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='button1' /&gt;&lt;ctrl name='Show All' role='push button' /&gt;" Guid="b2000000-2000-2000-2000-000000000022" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/cxj4t8a85UOw7P5zH7SZkA" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='ClientAccountMovemnets' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NClick.Target>
+            </uix:NClick>
+            <uix:NGetText DisplayName="Read all transactions text" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NGetText_1" ScopeIdentifier="f1b2c3d4-7777-4777-8777-777777777777" Version="V5">
+              <uix:NGetText.Target>
+                <uix:TargetAnchorable ContentHash="nVSDFbL58UiCA-S3qeIRRw" DesignTimeRectangle="0, 0, 0, 0" ElementType="List" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='listView1' /&gt;&lt;ctrl role='list' /&gt;" Guid="b3000000-3000-3000-3000-000000000033" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/QZPVelTXw0mxdOvpKs2w1w" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='ClientAccountMovemnets' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+              </uix:NGetText.Target>
+              <uix:NGetText.Text>
+                <OutArgument x:TypeArguments="x:String">
+                  <CSharpReference x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">str_TransactionsText</CSharpReference>
+                </OutArgument>
+              </uix:NGetText.Text>
+            </uix:NGetText>
+          </Sequence>
+        </ActivityAction>
+      </uix:NApplicationCard.Body>
+      <uix:NApplicationCard.OCREngine>
+        <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+          <ActivityFunc.Argument>
+            <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+          </ActivityFunc.Argument>
+        </ActivityFunc>
+      </uix:NApplicationCard.OCREngine>
+      <uix:NApplicationCard.TargetApp>
+        <uix:TargetApp Area="493, 216, 935, 588" ContentHash="OLGW7ehHxEqnv43e2bAocg" FilePath="C:\Users\aliom\Downloads\ACME-System3-v0.1\acme-system3.exe" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/ab71OdNmJEGqAQ6yhmZs1g" Selector="&lt;wnd app='acme-system3.exe' automationid='ClientAccountMovemnets' title='*ACME*' /&gt;" Version="V3" />
+      </uix:NApplicationCard.TargetApp>
+    </uix:NApplicationCard>
+    <Assign DisplayName="Parse transaction amounts via regex (3rd column = Amount)" sap:VirtualizedContainerService.HintSize="615,64" sap2010:WorkflowViewState.IdRef="Assign_1a">
+      <Assign.To>
+        <OutArgument x:TypeArguments="scg:List(x:Decimal)">
+          <CSharpReference x:TypeArguments="scg:List(x:Decimal)" sap2010:WorkflowViewState.IdRef="CSharpReference`1_4">list_Amounts</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="scg:List(x:Decimal)">
+          <CSharpValue x:TypeArguments="scg:List(x:Decimal)" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">(from Match m in Regex.Matches(str_TransactionsText ?? "", @"\d{2}/\d{2}/\d{4}[\s\S]*?(-?\d+(?:[.,]\d+)?)\s+(Online|Offline)") select decimal.Parse(m.Groups[1].Value.Replace(",", ""))).ToList()</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Sum amounts as Decimal" sap:VirtualizedContainerService.HintSize="615,64" sap2010:WorkflowViewState.IdRef="Assign_1">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Decimal">
+          <CSharpReference x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpReference`1_2">out_CalculatedTotal</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Decimal">
+          <CSharpValue x:TypeArguments="x:Decimal" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">list_Amounts.Sum()</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+    <Assign DisplayName="Row count" sap:VirtualizedContainerService.HintSize="615,64" sap2010:WorkflowViewState.IdRef="Assign_2">
+      <Assign.To>
+        <OutArgument x:TypeArguments="x:Int32">
+          <CSharpReference x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpReference`1_3">out_RowCount</CSharpReference>
+        </OutArgument>
+      </Assign.To>
+      <Assign.Value>
+        <InArgument x:TypeArguments="x:Int32">
+          <CSharpValue x:TypeArguments="x:Int32" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">list_Amounts.Count</CSharpValue>
+        </InArgument>
+      </Assign.Value>
+    </Assign>
+  </Sequence>
+</Activity>

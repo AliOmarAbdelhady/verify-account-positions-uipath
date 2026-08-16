@@ -1,0 +1,99 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ACMEDesktop_Login" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Process configuration dictionary (ACMEDesktopExecutablePath, credentials)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property sap2010:Annotation.AnnotationText="True when ACME System 3 Desktop is authenticated and ready." Name="out_IsLoggedIn" Type="OutArgument(x:Boolean)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>683,684</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>GlobalConstantsNamespace</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use App (ACME System 3 Login)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="649,519" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="f1b2c3d4-5555-4555-8555-555555555555" Version="V2">
+    <uix:NApplicationCard.Body>
+      <ActivityAction x:TypeArguments="x:Object">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+        </ActivityAction.Argument>
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="615,346" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Username (email)" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NTypeInto_1" ScopeIdentifier="f1b2c3d4-5555-4555-8555-555555555555" Version="V5">
+            <uix:NTypeInto.Target>
+              <uix:TargetAnchorable ContentHash="Jk2Y2b_ONE2vG0xk3JHSdg" DesignTimeRectangle="234, 242, 473, 25" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='textBox1' /&gt;" Guid="431c39b3-7c63-4424-8386-755983c69d6a" InformativeScreenshot="f9306f47a40b28c267e4c123af5ae299.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/YR5v_vZv9k-XU79qmkjw_Q" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='Login' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NTypeInto.Target>
+            <uix:NTypeInto.Text>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">in_Config["ACME_Username"].ToString()</CSharpValue>
+              </InArgument>
+            </uix:NTypeInto.Text>
+          </uix:NTypeInto>
+          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Password" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NTypeInto_2" ScopeIdentifier="f1b2c3d4-5555-4555-8555-555555555555" Version="V5">
+            <uix:NTypeInto.Target>
+              <uix:TargetAnchorable ContentHash="XDWvIJ03WEmpnjTfCduH7w" DesignTimeRectangle="234, 305, 473, 25" ElementType="InputBoxPassword" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='groupBox1' /&gt;&lt;wnd ctrlname='textBox2' /&gt;&lt;ctrl role='editable text' /&gt;" Guid="da06e03f-ca58-443d-b075-5a0ca43dc38d" InformativeScreenshot="ff5abf8b86e248ff27a4f37b4ff1f8ae.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/H_TjEnhd1UK2hgWIQq667A" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='Login' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NTypeInto.Target>
+            <uix:NTypeInto.Text>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_4">in_Config["ACME_Password"].ToString()</CSharpValue>
+              </InArgument>
+            </uix:NTypeInto.Text>
+          </uix:NTypeInto>
+          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Login" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f1b2c3d4-5555-4555-8555-555555555555" Version="V5">
+            <uix:NClick.Target>
+              <uix:TargetAnchorable ContentHash="YTkc07yIR0inHzi2jmZ1ww" DesignTimeRectangle="366, 351, 166, 41" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='groupBox1' /&gt;&lt;wnd ctrlname='button1' /&gt;&lt;ctrl name='Login' role='push button' /&gt;" Guid="da802f15-c9e1-429d-a8c3-f8d19c90f5ad" InformativeScreenshot="3c4dddd6445ee5fddea7d825775d8da4.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/TR68Q6krqky0_WYVUIpFZg" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='Login' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NClick.Target>
+          </uix:NClick>
+          <uix:NCheckState DisplayName="Verify dashboard (welcome label)" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="f1b2c3d4-5555-4555-8555-555555555555" Version="V5">
+            <uix:NCheckState.Result>
+              <OutArgument x:TypeArguments="x:Boolean">
+                <CSharpReference x:TypeArguments="x:Boolean" sap2010:WorkflowViewState.IdRef="CSharpReference`1_1">out_IsLoggedIn</CSharpReference>
+              </OutArgument>
+            </uix:NCheckState.Result>
+            <uix:NCheckState.Target>
+              <uix:TargetAnchorable ContentHash="AtzazUOkoUya_txq7qJrKw" DesignTimeRectangle="24, 82, 885, 65" ElementType="Text" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='label3' /&gt;" Guid="09cc7a53-e649-48fb-ae53-7cd5ddcd91ef" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/vDYPr_REDUSH0pDt_2-gQA" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' cls='WindowsForms10.Window.*' title='*ACME System*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NCheckState.Target>
+          </uix:NCheckState>
+        </Sequence>
+      </ActivityAction>
+    </uix:NApplicationCard.Body>
+    <uix:NApplicationCard.OCREngine>
+      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+        <ActivityFunc.Argument>
+          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+        </ActivityFunc.Argument>
+      </ActivityFunc>
+    </uix:NApplicationCard.OCREngine>
+    <uix:NApplicationCard.TargetApp>
+      <uix:TargetApp Area="586, 291, 748, 438" ContentHash="v6CjhxegpUOf8_bQvuOrbA" FilePath="C:\Users\aliom\Downloads\ACME-System3-v0.1\acme-system3.exe" InformativeScreenshot="d2074e7237d52e28ac82d132271bb9c0.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/zAlXEsGx4U-mQDBtaVdldg" Selector="&lt;wnd app='acme-system3.exe' automationid='Login' title='*ACME*' /&gt;" Version="V3" />
+    </uix:NApplicationCard.TargetApp>
+  </uix:NApplicationCard>
+</Activity>

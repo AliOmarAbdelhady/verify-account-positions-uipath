@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Password Field",
+  "Description": "The Password text input field on the ACME System 3 login screen (WinForms textBox2, protected/masked).",
+  "Type": "Element",
+  "TaxonomyType": "Password",
+  "Id": "H_TjEnhd1UK2hgWIQq667A",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/H_TjEnhd1UK2hgWIQq667A",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/zAlXEsGx4U-mQDBtaVdldg",
+  "Created": "2026-08-05T12:51:43.7715985Z",
+  "Updated": "2026-08-05T12:51:43.7715985Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

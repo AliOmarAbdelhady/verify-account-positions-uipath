@@ -1,0 +1,15 @@
+﻿{
+  "Name": "By Client ID Menu Item",
+  "Description": "The 'Clients > Search For Client > By Client ID' cascading menu item on the ACME System 3 dashboard menu bar that opens the Client Search modal form.",
+  "Type": "Element",
+  "TaxonomyType": "None",
+  "Id": "JHpmI2ICWEWODfz8LxBhaA",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/JHpmI2ICWEWODfz8LxBhaA",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/kP6k14yPu06dAD4ph7hFUg",
+  "Created": "2026-08-05T13:20:04.8817774Z",
+  "Updated": "2026-08-05T13:20:04.8817774Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

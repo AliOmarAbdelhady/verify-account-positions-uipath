@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Include Inactive Clients Checkbox",
+  "Description": "The 'Include inactive clients' checkbox on the ACME System 3 'Search for Client by ID' modal form (WinForms checkBox1). Must be checked before searching.",
+  "Type": "Element",
+  "TaxonomyType": "Checkbox",
+  "Id": "2pL95eaWfUyNw9BN-Ml5-A",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/2pL95eaWfUyNw9BN-Ml5-A",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/iAC9vh2Ubk-HlZF-ZCRc4g",
+  "Created": "2026-08-05T13:36:44.6393422Z",
+  "Updated": "2026-08-05T13:36:44.6393422Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

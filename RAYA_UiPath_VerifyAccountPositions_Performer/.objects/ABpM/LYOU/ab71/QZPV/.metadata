@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Transactions Table",
+  "Description": "The transactions list (WinForms listView1) on the ACME System 3 Account Transactions window. Read its text to extract all transaction rows for summing.",
+  "Type": "Element",
+  "TaxonomyType": "Listbox",
+  "Id": "QZPVelTXw0mxdOvpKs2w1w",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/QZPVelTXw0mxdOvpKs2w1w",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/ab71OdNmJEGqAQ6yhmZs1g",
+  "Created": "2026-08-05T13:42:00.3451703Z",
+  "Updated": "2026-08-05T13:42:00.3451703Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

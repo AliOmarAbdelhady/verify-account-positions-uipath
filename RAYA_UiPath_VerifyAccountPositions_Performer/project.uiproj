@@ -1,0 +1,6 @@
+{
+  "Name": "RAYA_UiPath_VerifyAccountPositions_Performer",
+  "ProjectType": "Process",
+  "Description": "Performer: consumes WI5 queue items, verifies account positions (ACME System 3 Desktop) and updates ACME Web",
+  "MainFile": "Main.xaml"
+}

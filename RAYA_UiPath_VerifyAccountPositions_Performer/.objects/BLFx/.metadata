@@ -1,0 +1,12 @@
+﻿{
+  "Name": "ACME System3 Client Search_App",
+  "Type": "App",
+  "Id": "BLFxSUH5B02JfgDxSP-fNA",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/BLFxSUH5B02JfgDxSP-fNA",
+  "Created": "2026-08-05T13:36:17.3704821Z",
+  "Updated": "2026-08-05T13:36:17.3704821Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

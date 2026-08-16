@@ -1,0 +1,12 @@
+﻿{
+  "Name": "ACME System3 Dashboard_App",
+  "Type": "App",
+  "Id": "J3H3hXjzJU25b4Fi_7RzEQ",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/J3H3hXjzJU25b4Fi_7RzEQ",
+  "Created": "2026-08-05T13:19:40.2507478Z",
+  "Updated": "2026-08-05T13:19:40.2507478Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

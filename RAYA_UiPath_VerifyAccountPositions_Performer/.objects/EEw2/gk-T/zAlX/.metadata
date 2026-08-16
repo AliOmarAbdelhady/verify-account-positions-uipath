@@ -1,0 +1,14 @@
+﻿{
+  "Name": "ACME System3 Login",
+  "Description": "The login window of the ACME System 3 Desktop application where the operator enters email and password to authenticate.",
+  "Type": "Screen",
+  "Id": "zAlXEsGx4U-mQDBtaVdldg",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/zAlXEsGx4U-mQDBtaVdldg",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/gk-TIcfOuUyZsTAN-HRvUA",
+  "Created": "2026-08-05T12:51:27.3087373Z",
+  "Updated": "2026-08-05T12:51:27.3087373Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

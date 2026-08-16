@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Username Field",
+  "Description": "The Username (email) text input field on the ACME System 3 login screen (WinForms textBox1).",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "YR5v_vZv9k-XU79qmkjw_Q",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/YR5v_vZv9k-XU79qmkjw_Q",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/zAlXEsGx4U-mQDBtaVdldg",
+  "Created": "2026-08-05T12:51:43.687817Z",
+  "Updated": "2026-08-05T12:51:43.687817Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

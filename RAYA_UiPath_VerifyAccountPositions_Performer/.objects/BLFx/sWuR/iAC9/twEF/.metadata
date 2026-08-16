@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Client Result Row",
+  "Description": "The matched client row in the results list of the ACME System 3 'Search for Client by ID' modal form (WinForms listView1). Double-click to open the client's Accounts page. Name is parametrized on the Client ID.",
+  "Type": "Element",
+  "TaxonomyType": "None",
+  "Id": "twEFoYl1X0KSJoKA0gDkOw",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/twEFoYl1X0KSJoKA0gDkOw",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/iAC9vh2Ubk-HlZF-ZCRc4g",
+  "Created": "2026-08-05T13:36:44.8271188Z",
+  "Updated": "2026-08-05T13:36:44.8271188Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

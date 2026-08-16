@@ -1,0 +1,12 @@
+﻿{
+  "Name": "ACME System3 Login_App",
+  "Type": "App",
+  "Id": "EEw2A4mkr02EF1yVWQyBFQ",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/EEw2A4mkr02EF1yVWQyBFQ",
+  "Created": "2026-08-05T12:51:27.2551999Z",
+  "Updated": "2026-08-05T12:51:27.2551999Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

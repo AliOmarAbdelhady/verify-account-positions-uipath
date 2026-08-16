@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryTargetData ContentHash="shCK7JMqYE-cxJX9gZATIw" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryTargetData.Data>
+    <TargetAnchorable x:Key="TargetAnchorable" DesignTimeRectangle="129, 40, 78, 29" DesignTimeScaleFactor="1.25" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='menuStrip1' /&gt;&lt;ctrl name='menuStrip1' role='menu bar' /&gt;&lt;ctrl name='Clients' role='menu item' /&gt;" FuzzySelectorArgument="&lt;wnd ctrlname='menuStrip1' matching:ctrlname='fuzzy' fuzzylevel:ctrlname='0.0' /&gt;&lt;ctrl name='menuStrip1' role='menu bar' matching:name='fuzzy' fuzzylevel:name='0.0' /&gt;&lt;ctrl name='Clients' role='menu item' automationid='' matching:name='fuzzy' fuzzylevel:name='0.0' matching:automationid='fuzzy' fuzzylevel:automationid='0.0' check:text='Clients' /&gt;" Guid="e1a66c22-2155-47a0-b0f4-fac74607da00" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' cls='WindowsForms10.Window.*' title='*ACME System*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+      <imageRef attrName="InformativeScreenshot" originalValue="5a1d2414bad25427a9142974999df9df.jpg" xmlns="">0yHUE_ZbbaE6RfY0FMJ_hYQ</imageRef>
+    </TargetAnchorable>
+  </ObjectRepositoryTargetData.Data>
+</ObjectRepositoryTargetData>

@@ -1,0 +1,100 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ACMEWeb_NavigateWorkItems" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property sap2010:Annotation.AnnotationText="Process configuration dictionary (System1_URL)." Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>683,462</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Attach Browser — ACME Work Items" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="649,297" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="a1b2c3d4-2222-4222-8222-222222222222" Version="V2">
+    <uix:NApplicationCard.Body>
+      <ActivityAction x:TypeArguments="x:Object">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+        </ActivityAction.Argument>
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="615,184" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NGoToUrl DisplayName="Go To Work Items page" sap2010:WorkflowViewState.IdRef="NGoToUrl_1" ScopeIdentifier="a1b2c3d4-2222-4222-8222-222222222222" Version="V2">
+            <uix:NGoToUrl.Url>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_1">in_Config["System1_URL"].ToString().TrimEnd('/') + "/work-items"</CSharpValue>
+              </InArgument>
+            </uix:NGoToUrl.Url>
+          </uix:NGoToUrl>
+          <uix:NCheckState DisplayName="Verify Work Items page loaded (heading)" HealingAgentBehavior="SameAsCard" sap2010:WorkflowViewState.IdRef="NCheckState_1" ScopeIdentifier="a1b2c3d4-2222-4222-8222-222222222222" Version="V5">
+            <uix:NCheckState.Target>
+              <uix:TargetAnchorable DesignTimeRectangle="0, 0, 0, 0" ElementType="Text" ElementVisibilityArgument="Interactive" Guid="c0000000-0002-0002-0002-000000000001" ScopeSelectorArgument="&lt;html app='msedge.exe' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                <uix:TargetAnchorable.FullSelectorArgument>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_2">"&lt;webctrl tag='H1' innertext='Work Items' /&gt;"</CSharpValue>
+                  </InArgument>
+                </uix:TargetAnchorable.FullSelectorArgument>
+              </uix:TargetAnchorable>
+            </uix:NCheckState.Target>
+          </uix:NCheckState>
+        </Sequence>
+      </ActivityAction>
+    </uix:NApplicationCard.Body>
+    <uix:NApplicationCard.OCREngine>
+      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+        <ActivityFunc.Argument>
+          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+        </ActivityFunc.Argument>
+      </ActivityFunc>
+    </uix:NApplicationCard.OCREngine>
+    <uix:NApplicationCard.TargetApp>
+      <uix:TargetApp Area="0, 0, 0, 0" BrowserType="Edge" Selector="&lt;html app='msedge.exe' url='*acme-test.uipath.com*' /&gt;" Version="V3">
+        <uix:TargetApp.Arguments>
+          <InArgument x:TypeArguments="x:String" />
+        </uix:TargetApp.Arguments>
+        <uix:TargetApp.Url>
+          <InArgument x:TypeArguments="x:String">
+            <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_10">in_Config["System1_URL"].ToString()</CSharpValue>
+          </InArgument>
+        </uix:TargetApp.Url>
+        <uix:TargetApp.WorkingDirectory>
+          <InArgument x:TypeArguments="x:String" />
+        </uix:TargetApp.WorkingDirectory>
+      </uix:TargetApp>
+    </uix:NApplicationCard.TargetApp>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+  </uix:NApplicationCard>
+</Activity>

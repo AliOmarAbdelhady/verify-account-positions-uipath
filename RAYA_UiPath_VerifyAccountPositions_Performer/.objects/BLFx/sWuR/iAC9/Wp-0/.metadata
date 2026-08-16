@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Search Button",
+  "Description": "The Search submit button on the ACME System 3 'Search for Client by ID' modal form (WinForms button1).",
+  "Type": "Element",
+  "TaxonomyType": "Button",
+  "Id": "Wp-0611Y1kC5rSugX0TvoA",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/Wp-0611Y1kC5rSugX0TvoA",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/iAC9vh2Ubk-HlZF-ZCRc4g",
+  "Created": "2026-08-05T13:36:44.7445569Z",
+  "Updated": "2026-08-05T13:36:44.7445569Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

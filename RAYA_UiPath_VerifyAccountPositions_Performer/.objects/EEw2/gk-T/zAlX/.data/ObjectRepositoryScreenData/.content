@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-16"?>
+<ObjectRepositoryScreenData ContentHash="v6CjhxegpUOf8_bQvuOrbA" xmlns="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <ObjectRepositoryScreenData.Data>
+    <TargetApp x:Key="TargetApp" Area="586, 291, 748, 438" FilePath="C:\Users\aliom\Downloads\ACME-System3-v0.1\acme-system3.exe" Selector="&lt;wnd app='acme-system3.exe' automationid='Login' title='*ACME*' /&gt;" Version="V3">
+      <imageRef attrName="InformativeScreenshot" originalValue="d2074e7237d52e28ac82d132271bb9c0.jpg" xmlns="">0RLujvUkWAUKy-K3Oi8Ba3Q</imageRef>
+    </TargetApp>
+  </ObjectRepositoryScreenData.Data>
+</ObjectRepositoryScreenData>

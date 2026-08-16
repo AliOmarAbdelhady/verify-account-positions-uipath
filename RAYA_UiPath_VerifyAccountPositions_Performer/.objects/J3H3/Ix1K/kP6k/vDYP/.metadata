@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Welcome Label",
+  "Description": "The welcome text label on the ACME System 3 dashboard (WinForms label3) that confirms successful login. The email portion is volatile, so only the stable ctrlname is matched.",
+  "Type": "Element",
+  "TaxonomyType": "Label",
+  "Id": "vDYPr_REDUSH0pDt_2-gQA",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/vDYPr_REDUSH0pDt_2-gQA",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/kP6k14yPu06dAD4ph7hFUg",
+  "Created": "2026-08-05T13:20:04.6794902Z",
+  "Updated": "2026-08-05T13:20:04.6794902Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}

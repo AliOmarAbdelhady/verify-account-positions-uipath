@@ -1,0 +1,6 @@
+{
+  "Name": "RAYA_UiPath_VerifyAccountPositions_Dispatcher",
+  "ProjectType": "Process",
+  "Description": "Dispatcher: extract ACME WI5 work items and upload to Orchestrator queue",
+  "MainFile": "Main.xaml"
+}

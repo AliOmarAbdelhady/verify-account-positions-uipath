@@ -1,0 +1,125 @@
+<Activity mc:Ignorable="sap sap2010" x:Class="ACMEDesktop_NavigateToClientSearch" xmlns="http://schemas.microsoft.com/netfx/2009/xaml/activities" xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" xmlns:sap="http://schemas.microsoft.com/netfx/2009/xaml/activities/presentation" xmlns:sap2010="http://schemas.microsoft.com/netfx/2010/xaml/activities/presentation" xmlns:scg="clr-namespace:System.Collections.Generic;assembly=System.Private.CoreLib" xmlns:sco="clr-namespace:System.Collections.ObjectModel;assembly=System.Private.CoreLib" xmlns:sd="clr-namespace:System.Drawing;assembly=System.Drawing.Common" xmlns:sd1="clr-namespace:System.Drawing;assembly=System.Drawing.Primitives" xmlns:uix="http://schemas.uipath.com/workflow/activities/uix" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+  <x:Members>
+    <x:Property Name="in_Config" Type="InArgument(scg:Dictionary(x:String, x:Object))" />
+    <x:Property Name="in_ClientID" Type="InArgument(x:String)" />
+    <x:Property sap2010:Annotation.AnnotationText="Account number to open within the client's Accounts list (runbook 8.5)." Name="in_AccountNumber" Type="InArgument(x:String)" />
+  </x:Members>
+  <sap2010:ExpressionActivityEditor.ExpressionActivityEditor>C#</sap2010:ExpressionActivityEditor.ExpressionActivityEditor>
+  <sap:VirtualizedContainerService.HintSize>854.8000000000001,846.4</sap:VirtualizedContainerService.HintSize>
+  <sap2010:WorkflowViewState.IdRef>ActivityBuilder_1</sap2010:WorkflowViewState.IdRef>
+  <TextExpression.NamespacesForImplementation>
+    <sco:Collection x:TypeArguments="x:String">
+      <x:String>GlobalConstantsNamespace</x:String>
+      <x:String>GlobalVariablesNamespace</x:String>
+      <x:String>System</x:String>
+      <x:String>System.Collections.Generic</x:String>
+      <x:String>System.Collections.ObjectModel</x:String>
+      <x:String>System.Linq</x:String>
+      <x:String>UiPath.Core</x:String>
+      <x:String>UiPath.Core.Activities</x:String>
+    </sco:Collection>
+  </TextExpression.NamespacesForImplementation>
+  <TextExpression.ReferencesForImplementation>
+    <sco:Collection x:TypeArguments="AssemblyReference">
+      <AssemblyReference>Microsoft.CSharp</AssemblyReference>
+      <AssemblyReference>mscorlib</AssemblyReference>
+      <AssemblyReference>System</AssemblyReference>
+      <AssemblyReference>System.Activities</AssemblyReference>
+      <AssemblyReference>System.ComponentModel.TypeConverter</AssemblyReference>
+      <AssemblyReference>System.Core</AssemblyReference>
+      <AssemblyReference>System.Data</AssemblyReference>
+      <AssemblyReference>System.Linq</AssemblyReference>
+      <AssemblyReference>System.ObjectModel</AssemblyReference>
+      <AssemblyReference>System.Private.CoreLib</AssemblyReference>
+      <AssemblyReference>System.Xaml</AssemblyReference>
+      <AssemblyReference>UiPath.Studio.Constants</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities</AssemblyReference>
+      <AssemblyReference>UiPath.System.Activities.Design</AssemblyReference>
+      <AssemblyReference>UiPath.UiAutomation.Activities</AssemblyReference>
+    </sco:Collection>
+  </TextExpression.ReferencesForImplementation>
+  <uix:NApplicationCard AttachMode="ByInstance" DisplayName="Use App (Client Search)" HealingAgentBehavior="Job" sap:VirtualizedContainerService.HintSize="451.2,821.6" sap2010:WorkflowViewState.IdRef="NApplicationCard_1" ScopeGuid="f1b2c3d4-6666-4666-8666-666666666666" Version="V2">
+    <uix:NApplicationCard.Body>
+      <ActivityAction x:TypeArguments="x:Object">
+        <ActivityAction.Argument>
+          <DelegateInArgument x:TypeArguments="x:Object" Name="WSSessionData" />
+        </ActivityAction.Argument>
+        <Sequence DisplayName="Do" sap:VirtualizedContainerService.HintSize="449.6,596" sap2010:WorkflowViewState.IdRef="Sequence_1">
+          <sap:WorkflowViewStateService.ViewState>
+            <scg:Dictionary x:TypeArguments="x:String, x:Object">
+              <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+              <x:Boolean x:Key="IsAnnotationDocked">True</x:Boolean>
+            </scg:Dictionary>
+          </sap:WorkflowViewStateService.ViewState>
+          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Clients menu" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,134.4" sap2010:WorkflowViewState.IdRef="NClick_1" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f1b2c3d4-6666-4666-8666-666666666666" Version="V5">
+            <uix:NClick.Target>
+              <uix:TargetAnchorable ContentHash="shCK7JMqYE-cxJX9gZATIw" DesignTimeRectangle="129, 40, 78, 29" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='menuStrip1' /&gt;&lt;ctrl name='menuStrip1' role='menu bar' /&gt;&lt;ctrl name='Clients' role='menu item' /&gt;" Guid="e1a66c22-2155-47a0-b0f4-fac74607da00" InformativeScreenshot="5a1d2414bad25427a9142974999df9df.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/UUOi_-7wkEqzYSAb4PU06Q" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' cls='WindowsForms10.Window.*' title='*ACME System*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NClick.Target>
+          </uix:NClick>
+          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Search For Client by Client ID" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,134.4" sap2010:WorkflowViewState.IdRef="NClick_2" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f1b2c3d4-6666-4666-8666-666666666666" Version="V5">
+            <uix:NClick.Target>
+              <uix:TargetAnchorable ContentHash="XsaRQmZUj0-lqQA_sWFBAg" DesignTimeRectangle="-493, -216, 0, 0" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='menuStrip1' /&gt;&lt;ctrl name='menuStrip1' role='menu bar' /&gt;&lt;ctrl name='Clients' role='menu item' /&gt;&lt;ctrl name='Search For Client' role='menu item' /&gt;&lt;ctrl name='By Client ID' role='menu item' /&gt;" Guid="bba55438-7490-46d8-ba9a-a7ffca69672c" InformativeScreenshot="34ad91e501cb099be34a53b2d6b00886.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/JHpmI2ICWEWODfz8LxBhaA" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' cls='WindowsForms10.Window.*' title='*ACME System*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NClick.Target>
+          </uix:NClick>
+          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Check Include inactive clients" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,134.4" sap2010:WorkflowViewState.IdRef="NClick_3" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f1b2c3d4-6666-4666-8666-666666666666" Version="V5">
+            <uix:NClick.Target>
+              <uix:TargetAnchorable ContentHash="isPH74MQ00m8Wd6KE3NPgw" DesignTimeRectangle="0, 0, 0, 0" ElementType="CheckBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='checkBox1' /&gt;" Guid="a2000000-2000-2000-2000-000000000002" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/2pL95eaWfUyNw9BN-Ml5-A" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='SearchingClient' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NClick.Target>
+          </uix:NClick>
+          <uix:NTypeInto ActivateBefore="True" ClickBeforeMode="Single" DisplayName="Type Client ID" EmptyFieldMode="SingleLine" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,248.8" sap2010:WorkflowViewState.IdRef="NTypeInto_1" InteractionMode="SameAsCard" ScopeIdentifier="f1b2c3d4-6666-4666-8666-666666666666" Version="V5">
+            <uix:NTypeInto.Target>
+              <uix:TargetAnchorable ContentHash="X2e3BbbV7kKYgnC8l3ccHw" DesignTimeRectangle="0, 0, 0, 0" ElementType="InputBox" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='textBox1' /&gt;" Guid="a1000000-1000-1000-1000-000000000001" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/sXCD0zN0d0KIOWvQoSpR_A" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='SearchingClient' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NTypeInto.Target>
+            <uix:NTypeInto.Text>
+              <InArgument x:TypeArguments="x:String">
+                <CSharpValue x:TypeArguments="x:String" sap2010:WorkflowViewState.IdRef="CSharpValue`1_3">in_ClientID</CSharpValue>
+              </InArgument>
+            </uix:NTypeInto.Text>
+          </uix:NTypeInto>
+          <uix:NClick ActivateBefore="True" ClickType="Single" DisplayName="Click Search" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,186.4" sap2010:WorkflowViewState.IdRef="NClick_4" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f1b2c3d4-6666-4666-8666-666666666666" Version="V5">
+            <uix:NClick.Target>
+              <uix:TargetAnchorable ContentHash="U6aFp7vS5Ei6eGk1gAvLOA" DesignTimeRectangle="0, 0, 0, 0" ElementType="Button" ElementVisibilityArgument="Interactive" FullSelectorArgument="&lt;wnd ctrlname='button1' /&gt;&lt;ctrl name='Search' role='push button' /&gt;" Guid="a3000000-3000-3000-3000-000000000003" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/Wp-0611Y1kC5rSugX0TvoA" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='SearchingClient' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive" />
+            </uix:NClick.Target>
+          </uix:NClick>
+          <uix:NClick ActivateBefore="True" ClickType="Double" DisplayName="Double-click the matched client" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,134.4" sap2010:WorkflowViewState.IdRef="NClick_5" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f1b2c3d4-6666-4666-8666-666666666666" Version="V5">
+            <uix:NClick.Target>
+              <uix:TargetAnchorable ContentHash="Avr9wInsq0Cu7IYynoSZug" DesignTimeRectangle="0, 0, 0, 0" ElementType="ListItem" ElementVisibilityArgument="Interactive" Guid="a4000000-4000-4000-4000-000000000004" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/twEFoYl1X0KSJoKA0gDkOw" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='SearchingClient' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                <uix:TargetAnchorable.FullSelectorArgument>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String">string.Format("&lt;wnd ctrlname='listView1' /&gt;&lt;ctrl name='{0}' role='list item' /&gt;", in_ClientID)</CSharpValue>
+                  </InArgument>
+                </uix:TargetAnchorable.FullSelectorArgument>
+              </uix:TargetAnchorable>
+            </uix:NClick.Target>
+          </uix:NClick>
+          <uix:NClick ActivateBefore="True" ClickType="Double" DisplayName="Double-click the matching account" HealingAgentBehavior="SameAsCard" sap:VirtualizedContainerService.HintSize="416,134.4" sap2010:WorkflowViewState.IdRef="NClick_6" KeyModifiers="None" MouseButton="Left" ScopeIdentifier="f1b2c3d4-6666-4666-8666-666666666666" Version="V5">
+            <uix:NClick.Target>
+              <uix:TargetAnchorable ContentHash="MCGQ45JUgE2zZmnxuKu3cA" DesignTimeRectangle="0, 0, 0, 0" ElementType="ListItem" ElementVisibilityArgument="Interactive" Guid="b1000000-1000-1000-1000-000000000011" InformativeScreenshot="2c7bc0c7ace9b263c4706a09e3b583c6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/B33vFzD0LkiA22avHmeM2Q" ScopeSelectorArgument="&lt;wnd app='acme-system3.exe' automationid='ClientAccounts' title='*ACME*' /&gt;" SearchSteps="Selector" Version="V6" WaitForReadyArgument="Interactive">
+                <uix:TargetAnchorable.FullSelectorArgument>
+                  <InArgument x:TypeArguments="x:String">
+                    <CSharpValue x:TypeArguments="x:String">string.Format("&lt;wnd ctrlname='listView1' /&gt;&lt;ctrl name='{0}' role='list item' /&gt;", in_AccountNumber)</CSharpValue>
+                  </InArgument>
+                </uix:TargetAnchorable.FullSelectorArgument>
+              </uix:TargetAnchorable>
+            </uix:NClick.Target>
+          </uix:NClick>
+        </Sequence>
+      </ActivityAction>
+    </uix:NApplicationCard.Body>
+    <uix:NApplicationCard.OCREngine>
+      <ActivityFunc x:TypeArguments="sd:Image, scg:IEnumerable(scg:KeyValuePair(sd1:Rectangle, x:String))">
+        <ActivityFunc.Argument>
+          <DelegateInArgument x:TypeArguments="sd:Image" Name="Image" />
+        </ActivityFunc.Argument>
+      </ActivityFunc>
+    </uix:NApplicationCard.OCREngine>
+    <uix:NApplicationCard.TargetApp>
+      <uix:TargetApp Area="493, 216, 935, 588" ContentHash="P_dV6pFuH02xl1NVgXWOZw" FilePath="C:\Users\aliom\Downloads\ACME-System3-v0.1\acme-system3.exe" InformativeScreenshot="c58c96ceff12460f0d5390afb2ddf8b6.jpg" Reference="RQWghmZaTkuLfgrejC3p-w/kP6k14yPu06dAD4ph7hFUg" Selector="&lt;wnd app='acme-system3.exe' cls='WindowsForms10.Window.*' title='*ACME System*' /&gt;" Version="V3" />
+    </uix:NApplicationCard.TargetApp>
+    <sap:WorkflowViewStateService.ViewState>
+      <scg:Dictionary x:TypeArguments="x:String, x:Object">
+        <x:Boolean x:Key="IsExpanded">True</x:Boolean>
+      </scg:Dictionary>
+    </sap:WorkflowViewStateService.ViewState>
+  </uix:NApplicationCard>
+</Activity>

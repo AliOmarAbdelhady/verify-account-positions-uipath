@@ -1,0 +1,15 @@
+﻿{
+  "Name": "Client ID Field",
+  "Description": "The Client ID text input field on the ACME System 3 'Search for Client by ID' modal form (WinForms textBox1).",
+  "Type": "Element",
+  "TaxonomyType": "Input",
+  "Id": "sXCD0zN0d0KIOWvQoSpR_A",
+  "Reference": "RQWghmZaTkuLfgrejC3p-w/sXCD0zN0d0KIOWvQoSpR_A",
+  "ParentRef": "RQWghmZaTkuLfgrejC3p-w/iAC9vh2Ubk-HlZF-ZCRc4g",
+  "Created": "2026-08-05T13:36:44.5485986Z",
+  "Updated": "2026-08-05T13:36:44.5485986Z",
+  "CreatedBy": [
+    "UiPath.UIAutomationCore, Version=26.10.0.0, Culture=neutral, PublicKeyToken=null",
+    "UiPath.Platform, Version=26.4.0.0, Culture=neutral, PublicKeyToken=null"
+  ]
+}
